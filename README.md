@@ -49,3 +49,31 @@ El objetivo principal es afianzar el uso de estructuras de datos y la modulariza
 3. Seguir el menú en consola para realizar operaciones: agregar país, actualizar, buscar filtrar, ordenar y ver estadísticas.
 
 El código está desarrollado usando solo librerías estándar de Python (csv, os, math, etc.)
+
+## 🔗Links
+
+- **Enlace al video:**
+
+## 🔁 Ejemplos de entradas y salidas
+
+```
+╔═════════════════════════════════════════════╗
+║ TRABAJO PRACTICO INTEGRADOR PROGRAMACIÓN 1  ║
+╚═════════════════════════════════════════════╝
+
+┌─────────────────────────────────────────────┐
+│             GESTIÓN DE PAISES               │
+└─────────────────────────────────────────────┘
+
+---------------MENÚ DE OPCIONES----------------
+
+1). Agregar país.
+2). Actualizar país.
+3). Buscar país.
+4). Filtrar país.
+5). Ordenar pais.
+6). Mostrar estadísticas.
+7). Salir.
+
+Ingrese una opción: 6
+```

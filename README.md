@@ -35,3 +35,17 @@ El objetivo principal es afianzar el uso de estructuras de datos y la modulariza
 ├── paises.csv → Archivo CSV con los datos base de los países
 └── README.md → Documento descriptivo del proyecto (este archivo)
 ```
+
+## ⚙ Instrucciones de ejecución
+
+1. Clonar o descargar el repositorio
+   bash
+   git clone https://github.com/gabrielsebagonzalez/UTN-TUPaDProgramacion1_TPI.git
+   cd UTN-TUPaDProgramacion1_TPI
+
+2. Ejecutar el programa
+   python TPI.py
+
+3. Seguir el menú en consola para realizar operaciones: agregar país, actualizar, buscar filtrar, ordenar y ver estadísticas.
+
+El código está desarrollado usando solo librerías estándar de Python (csv, os, math, etc.)

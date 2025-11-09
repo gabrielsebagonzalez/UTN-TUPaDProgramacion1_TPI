@@ -30,7 +30,7 @@ El objetivo principal es afianzar el uso de estructuras de datos y la modulariza
 ## 🧱Estructura del proyecto
 
 ```
-** 📂 UTN-TUPaDProgramacion1_TPI/**
+📂 **UTN-TUPaDProgramacion1_TPI/**
 ├── **TPI.py** → Programa principal con el menú y las opciones
 ├── **paises.csv** → Archivo CSV con los datos base de los países
 └── **README.md** → Documento descriptivo del proyecto (este archivo)

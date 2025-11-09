@@ -26,3 +26,10 @@
 El proyecto consiste en desarrollar una **aplicación en Python** para gestionar información sobre **países** a partir de un archivo CSV.
 Permite realizar operaciones de **agregar, actualizar, búsqueda, filtrado, ordenamiento y cálculo de estadísticas**, aplicando los conceptos de la cursada: listas, diccionarios, funciones, condicionales, bucles y manejo de archivos CSV.
 El objetivo principal es afianzar el uso de estructuras de datos y la modularización del código con funciones de una sola responsabilidad.
+
+## 🧱Estructura del proyecto
+
+**📁 UTN-TUPaDProgramacion1_TPI/**
+`⊢` TPI.py → Programa principal con el menú y las opciones
+`⊢` paises.csv → Archivo CSV con los datos base de los países
+`⨽` README.md → Documento descriptivo del proyecto(este archivo)

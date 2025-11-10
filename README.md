@@ -76,4 +76,21 @@ El código está desarrollado usando solo librerías estándar de Python (csv, o
 7). Salir.
 
 Ingrese una opción: 6
+
+***** Menú de estadísticas *****
+Seleccione una opción
+1) País con mayor población
+2) País con menor población
+3) Promedio de población
+4) Promedio de superficie
+5) Cantidad de países por continente
+6) Volver al menú principal
+Ingrese una opción: 5
+
+Cantidad de países por continente.
+Asia: 38 países
+Europa: 39 países
+África: 47 países
+América: 29 países
+Oceanía: 11 países
 ```

@@ -33,6 +33,7 @@ El objetivo principal es afianzar el uso de estructuras de datos y la modulariza
 📂 UTN-TUPaDProgramacion1_TPI/
 ├── TPI.py → Programa principal con el menú y las opciones
 ├── paises.csv → Archivo CSV con los datos base de los países
+├── image.png → Archivo de imágenes
 └── README.md → Documento descriptivo del proyecto (este archivo)
 ```
 
@@ -94,3 +95,20 @@ Europa: 39 países
 América: 29 países
 Oceanía: 11 países
 ```
+
+## 👥 Participación de los integrantes
+
+- **Mauricio Gabriel Guzmán**:
+  Se encargó del **diseño inicial del programa** e implementó el **desarrollo de los tres primeros puntos del trabajo práctico**, que incluyen:
+
+  - Agregar un país con todos los datos necesarios para almacenarse (sin campos vacíos).
+  - Actualizar los datos de población y superficie de un país.
+  - Buscar un país por nombre (coincidencia parcial o exacta).  
+    Además, realizó pruebas de validación de entrada y colaboró en la estructura general del código.
+
+- **Gabriel Sebastián González**:  
+  Implementó los **tres últimos puntos del trabajo práctico**, desarrollando las funciones de:
+  - Filtrar países por continente, rango de población o superficie.
+  - Ordenar países por nombre, población o superficie (ascendente o descendente).
+  - Mostrar estadísticas generales (mayor y menor población, promedios y cantidad de países por continente).  
+    También se ocupó de la **documentación del proyecto (README.md)**.

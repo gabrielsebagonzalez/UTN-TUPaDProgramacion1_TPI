@@ -104,7 +104,7 @@ Oceanía: 11 países
   - Agregar un país con todos los datos necesarios para almacenarse (sin campos vacíos).
   - Actualizar los datos de población y superficie de un país.
   - Buscar un país por nombre (coincidencia parcial o exacta).  
-    Además, realizó pruebas de validación de entrada y colaboró en la estructura general del código.
+    Además, realizó pruebas de validación de entrada y colaboró en la estructura general del código y **marco teórico (PDF)**.
 
 - **Gabriel Sebastián González**:  
   Implementó los **tres últimos puntos del trabajo práctico**, desarrollando las funciones de:

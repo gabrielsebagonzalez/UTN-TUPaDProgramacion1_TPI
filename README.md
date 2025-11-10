@@ -57,6 +57,9 @@ El código está desarrollado usando solo librerías estándar de Python (csv, o
 
 ## 🔁 Ejemplos de entradas y salidas
 
+En este ejemplo, el usuario selecciona la opción 6 (Mostrar estadísticas) desde el menú principal, y luego elige la subopción 5 (Cantidad de países por continente) dentro del menú de estadísticas.
+El sistema procesa los datos cargados desde el archivo CSV y muestra cuántos países hay en cada continente.
+
 ```
 ╔═════════════════════════════════════════════╗
 ║ TRABAJO PRACTICO INTEGRADOR PROGRAMACIÓN 1  ║

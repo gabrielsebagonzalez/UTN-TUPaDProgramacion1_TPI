@@ -13,7 +13,7 @@
 
 - **Nombre y Apellido:** Mauricio Gabriel Guzmán
 - **Nombre y Apellido:** Gabriel Sebastián González
-- **Comisión:** M2025-6
+- **Comisión:** Ag25-1C-06
 
 ## 👩‍🏫 Datos de profesores
 

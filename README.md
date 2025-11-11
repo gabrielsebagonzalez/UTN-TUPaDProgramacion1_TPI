@@ -59,7 +59,7 @@ El código está desarrollado usando solo librerías estándar de Python (csv, o
 
 ### Ejemplo 1 - Mostrar estadísticas
 
-**Descripción:**
+**Descripción:**  
 En este ejemplo, el usuario selecciona la opción 6 (Mostrar estadísticas) desde el menú principal, y luego elige la subopción 5 (Cantidad de países por continente) dentro del menú de estadísticas.
 El sistema procesa los datos cargados desde el archivo CSV y muestra cuántos países hay en cada continente.
 
@@ -104,7 +104,7 @@ Oceanía: 11 países
 
 ### Ejemplo 2 - Buscar país
 
-**Descripción:**
+**Descripción:**  
 En este segundo ejemplo, el usuario selecciona la opción **3 (Buscar país)** desde el menú principal e ingresa el nombre del país **Argentina**.
 El sistema busca coincidencias en el archivo CSV y muestra todos los datos del país encontrado.
 

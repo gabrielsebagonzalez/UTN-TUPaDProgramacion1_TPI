@@ -33,7 +33,6 @@ El objetivo principal es afianzar el uso de estructuras de datos y la modulariza
 📂 UTN-TUPaDProgramacion1_TPI/
 ├── TPI.py → Programa principal con el menú y las opciones
 ├── paises.csv → Archivo CSV con los datos base de los países
-├── image.png → Archivo de imágenes
 └── README.md → Documento descriptivo del proyecto (este archivo)
 ```
 
@@ -109,9 +108,13 @@ En este segundo ejemplo, el usuario selecciona la opción **3 (Buscar país)** d
 El sistema busca coincidencias en el archivo CSV y muestra todos los datos del país encontrado.
 
 ```
-TRABAJO PRACTICO INTEGRADOR PROGRAMACIÓN 1
+╔═════════════════════════════════════════════╗
+║ TRABAJO PRACTICO INTEGRADOR PROGRAMACIÓN 1  ║
+╚═════════════════════════════════════════════╝
 
-GESTIÓN DE PAISES
+┌─────────────────────────────────────────────┐
+│             GESTIÓN DE PAISES               │
+└─────────────────────────────────────────────┘
 
 ---------------MENÚ DE OPCIONES----------------
 
@@ -124,11 +127,49 @@ GESTIÓN DE PAISES
 7). Salir.
 
 Ingrese una opción: 3
+
 Ingrese el nombre del país que desea buscar: Argentina
 
 --- Resultados de la búsqueda ---
+
 País: Argentina | Población: 45195777 | Superficie: 2780400 | Continente: América
 
+```
+
+### Ejemplo 3 - Búsqueda parcial del país
+
+**Descripción**  
+En este ejemplo, el usuario selecciona la opción **3 (Buscar país)** desde el menú principal e ingresa solo una parte del nombre, en este caso **Arg**.
+El sistema realiza una búsqueda parcial dentro del archivo CSV y muestra todos los países cuyo nombre contiene esa cadena.
+Esto permite encontrar resultados aunque el usuario no escriba el nombre completo.
+
+```
+╔═════════════════════════════════════════════╗
+║ TRABAJO PRACTICO INTEGRADOR PROGRAMACIÓN 1  ║
+╚═════════════════════════════════════════════╝
+
+┌─────────────────────────────────────────────┐
+│             GESTIÓN DE PAISES               │
+└─────────────────────────────────────────────┘
+
+---------------MENÚ DE OPCIONES----------------
+
+1). Agregar país.
+2). Actualizar país.
+3). Buscar país.
+4). Filtrar país.
+5). Ordenar país.
+6). Mostrar estadísticas.
+7). Salir.
+
+Ingrese una opción: 3
+
+Ingrese el nombre del país que desea buscar: Arg
+
+--- Resultados de la búsqueda ---
+
+País: Argelia | Población: 43851044 | Superficie: 2381741 | Continente: África
+País: Argentina | Población: 45195777 | Superficie: 2780400 | Continente: América
 ```
 
 ## 👥 Participación de los integrantes

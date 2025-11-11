@@ -57,6 +57,9 @@ El código está desarrollado usando solo librerías estándar de Python (csv, o
 
 ## 🔁 Ejemplos de entradas y salidas
 
+### Ejemplo 1 - Mostrar estadísticas
+
+**Descripción**
 En este ejemplo, el usuario selecciona la opción 6 (Mostrar estadísticas) desde el menú principal, y luego elige la subopción 5 (Cantidad de países por continente) dentro del menú de estadísticas.
 El sistema procesa los datos cargados desde el archivo CSV y muestra cuántos países hay en cada continente.
 
@@ -97,6 +100,35 @@ Europa: 39 países
 África: 47 países
 América: 29 países
 Oceanía: 11 países
+```
+
+### Ejemplo 2 - Buscar país
+
+**Descripción**
+En este segundo ejemplo, el usuario selecciona la opción **3 (Buscar país)** desde el menú principal e ingresa el nombre del país **Argentina**.
+El sistema busca coincidencias en el archivo CSV y muestra todos los datos del país encontrado.
+
+```
+TRABAJO PRACTICO INTEGRADOR PROGRAMACIÓN 1
+
+GESTIÓN DE PAISES
+
+---------------MENÚ DE OPCIONES----------------
+
+1). Agregar país.
+2). Actualizar país.
+3). Buscar país.
+4). Filtrar país.
+5). Ordenar país.
+6). Mostrar estadísticas.
+7). Salir.
+
+Ingrese una opción: 3
+Ingrese el nombre del país que desea buscar: Argentina
+
+--- Resultados de la búsqueda ---
+País: Argentina | Población: 45195777 | Superficie: 2780400 | Continente: América
+
 ```
 
 ## 👥 Participación de los integrantes

@@ -52,7 +52,7 @@ El código está desarrollado usando solo librerías estándar de Python (csv, o
 
 ## 🔗Links
 
-- **Enlace al video:**
+- **Enlace al video:** https://www.youtube.com/watch?v=PwOgIKrN1bk
 
 ## 🔁 Ejemplos de entradas y salidas
 

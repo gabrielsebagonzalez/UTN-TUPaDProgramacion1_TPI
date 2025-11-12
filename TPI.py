@@ -4,7 +4,8 @@ import unicodedata
 
 
 def menu():
-
+#Esta función muestra el menú interactivo del sistema y permite al usuario seleccionar distintas operaciones.
+#Cada opción llama a una función específica.
     op = "0"
     opciones = [
         "\n╔═════════════════════════════════════════════╗",
@@ -47,6 +48,10 @@ def menu():
                 print("Debes ingresar una opción valida")
 
 def obtener_paises():
+
+#Lee el archivo 'paises.csv' y devuelve una lista de diccionarios,donde cada país se representa con nombre, población, superficie y continente.
+# Si el archivo no existe, lo crea con los encabezados correspondientes.
+
     paises = []
     if not os.path.exists("paises.csv"):
         with open("paises.csv", "w", newline="", encoding="utf-8")as archivo:
@@ -60,41 +65,11 @@ def obtener_paises():
         for fila in lector:
             paises.append({"nombre": fila["nombre"], "poblacion": int(fila["poblacion"]), "superficie": int(fila["superficie"]), "continente": fila["continente"]})
         return paises
-    
-
-def mostrar_paises(paises):
-    if not paises:
-        print("\n*** No hay información de países disponibles ***")
-    else:
-        print("\n--- Registro Geográfico ---")
-        for pais in paises:
-            print(f"País: {pais['nombre']} | Población: {pais['poblacion']} | Superficie: {pais['superficie']} | Continente: {pais['continente']}")
-
-
-def existe_pais(pais_agregado):
-    paises = obtener_paises()
-
-    for pais in paises:
-        if pais_agregado.strip().lower() == pais["nombre"].strip().lower():
-            return True
-    return False
-
-def validar_numero(numero):
-
-    if not numero.isdigit():
-        return False
-
-    return True 
-
-def agregar_pais_validado(pais):
-    with open("paises.csv", "a", newline="", encoding="utf-8")as archivo:
-        escritor=csv.DictWriter(archivo, fieldnames=["nombre", "poblacion", "superficie", "continente"])
-        escritor.writerow(pais)
-
-def validar_nombre(nombre):
-    return nombre.replace(" ", "").isalpha()
 
 def agregar_pais():
+# Permite registrar un país nuevo en el archivo CSV.
+# Valida que el nombre sea correcto, que no esté vacío ni duplicado, y que población y superficie sean números válidos.
+
     while True:
             nuevo_pais = input(f"Ingrese el nombre del país que desea registrar: ").strip().capitalize()
 
@@ -132,87 +107,133 @@ def agregar_pais():
             print("País agregado correctamente")
             break
 
+def existe_pais(pais_agregado):
+# Verifica si un país ya está registrado en el CSV.
+# Compara nombres normalizados para evitar duplicados con o sin tildes y mayúsculas.
+    
+    paises = obtener_paises()
+    for pais in paises:
+        if normalizar_texto(pais_agregado) == normalizar_texto(pais["nombre"]):
+            return True
+    return False
+
+def validar_numero(numero):
+# Comprueba que el texto ingresado contenga únicamente dígitos, enteros positivos, evitando valores vacíos o no numéricos
+
+    if not numero.isdigit():
+        return False
+
+    return True 
+
+def agregar_pais_validado(pais):
+#Esta función recibe un diccionario con los datos de un país que ya fueron validados previamente y los escribe en el archivo csv
+
+    with open("paises.csv", "a", newline="", encoding="utf-8")as archivo:
+        escritor=csv.DictWriter(archivo, fieldnames=["nombre", "poblacion", "superficie", "continente"])
+        escritor.writerow(pais)
+
+def validar_nombre(nombre):
+# Esta función comprueba que el texto ingresado sea un nombre válido.
+# Elimina los espacios y verifica que solo contenga caracteres alfabéticos.
+    return nombre.replace(" ", "").isalpha()
+
+def actualizar_datos():
+    
+# Permite modificar la población o superficie de un país registrado.
+# Usa normalización para que el usuario pueda escribir el nombre con o sin tildes y aún así encontrarlo.
+
+    paises = obtener_paises()
+
+    print("\n----- Actualización de datos de países registrados -----")
+    for pais in paises:
+        print(f" - País: {pais['nombre']}")
+
+    while True:
+        pais_seleccionado = input("\nIngresa el nombre del país que desea actualizar: ").strip()
+        if not pais_seleccionado:
+            print("*El nombre no puede estar vacío.*")
+            continue
+        if not existe_pais(pais_seleccionado):
+            print("*El país ingresado no se encuentra registrado.*")
+            continue
+        break
+
+    for pais in paises:
+        if normalizar_texto(pais["nombre"]) == normalizar_texto(pais_seleccionado):
+            while True:
+                opcion = input("Ingrese [P] para actualizar población | [S] para superficie: ").strip().upper()
+                if not validar_opcion(opcion):
+                    print("*Debes ingresar 'P' o 'S'.*")
+                    continue
+                break
+
+            if opcion == "P":
+                poblacion = input(f"Ingrese la cantidad de habitantes de {pais_seleccionado}: ").strip()
+                while not validar_numero(poblacion):
+                    print("\n*La cantidad ingresada no es válida*")
+                    poblacion = input(f"Ingrese la cantidad de habitantes de {pais_seleccionado}: ").strip()
+                pais["poblacion"] = int(poblacion)
+                guardar_datos_actualizados(paises)
+                print(f"\n- Población de {pais_seleccionado} actualizada exitosamente -")
+
+            elif opcion == "S":
+                superficie = input(f"Ingrese la superficie en km² de {pais_seleccionado}: ").strip()
+                while not validar_numero(superficie):
+                    print("\n*La superficie ingresada no es válida*")
+                    superficie = input(f"Ingrese la superficie en km² de {pais_seleccionado}: ").strip()
+                pais["superficie"] = int(superficie)
+                guardar_datos_actualizados(paises)
+                print(f"\n- Superficie de {pais_seleccionado} actualizada exitosamente -")
+
+def mostrar_paises(paises):
+# Presenta en pantalla todos los países disponibles con sus atributos
+    if not paises:
+        print("\n*** No hay información de países disponibles ***")
+    else:
+        print("\n--- Registro Geográfico ---")
+        for pais in paises:
+            print(f"País: {pais['nombre']} | Población: {pais['poblacion']} | Superficie: {pais['superficie']} | Continente: {pais['continente']}")
+
 def validar_opcion(opcion):
+# Verifica que la opción ingresada por el usuario sea válida para la actualización
+# de datos de un país. Acepta únicamente 'P' (población) o 'S' (superficie)
+
     if not opcion.isalpha():
         return False
     return opcion.upper() in ["P", "S"]
 
 def guardar_datos_actualizados(paises):
+#Guarda en 'paises.csv' la lista completa de países (con los cambios realizados).
     with open("paises.csv", "w", newline="", encoding="utf-8")as archivo:
         escritor = csv.DictWriter(archivo, fieldnames=["nombre", "poblacion","superficie","continente"])
         escritor.writeheader()
         escritor.writerows(paises)
 
-def actualizar_datos():
-    paises = obtener_paises()
-
-    print("\n----- Actualización de datos de paises registrados(poblacion y superficie) -----")
-    for pais in paises:
-        print(f" - País: {pais['nombre']}")
-
-    while True:
-        pais_seleccionado = input("\nIngresa el nombre del pais al que desea actualizar sus datos: ").strip()
-        if not pais_seleccionado:
-            print("*El nombre no puede estar vacío.*")
-            continue
-        if not existe_pais(pais_seleccionado):
-            print("*El nombre del pais ingresado no se encuentra registrado.*")
-            continue
-        break                 
-
-    for pais in paises:
-        if pais["nombre"].lower() == pais_seleccionado.strip().lower():
-            while True:
-                opcion = input("Ingrese [P] Solicitar actualizar su población | ingrese [S] actualizar su superficie: ").strip().upper()
-                if not validar_opcion(opcion):
-                    print("*Debes ingresar 'P' para población o 'S' para superficie.*")
-                    continue
-                break
-
-        # Ejecuta la acción correspondiente
-        if opcion == "P":
-            poblacion = input(f"Ingrese la cantidad de habitantes de {pais_seleccionado}: ").strip()
-            while not validar_numero(poblacion):
-                print("\n*La cantidad ingresada no es válida*")
-                poblacion = input(f"Ingrese la cantidad de habitantes de {pais_seleccionado}: ").strip()
-                continue
-            pais["poblacion"] =  int(poblacion)
-            guardar_datos_actualizados(paises)
-            print(f"\n- Población de {pais_seleccionado} actualizada exitosamente -")
-
-        elif opcion == "S":
-            superficie = input(f"Ingrese la superfice en km² de {pais_seleccionado}: ").strip()
-            while not validar_numero(superficie):
-                print("\n*La superficie ingresada no es válida*")
-                superficie = input(f"Ingrese la superfice en km² de {pais_seleccionado}: ").strip()
-                continue
-            pais["superficie"] = int(superficie)
-            guardar_datos_actualizados(paises)
-            print(f"\n- Superficie de {pais_seleccionado} actualizada exitosamente -")
-
 def buscar_paises():
-    
-    #Devuelve e imprime una lista de países que coincidan (exacta o parcialmente) con el nombre buscado.
+# Realiza una búsqueda exacta o parcial de países por nombre.
+# Devuelve una lista de coincidencias y muestra sus atributos.
     
     paises = obtener_paises()
-    nombre_buscado = input("\nIngrese el nombre del país que desea buscar: ").strip().lower()
+    nombre_buscado = input("\nIngrese el nombre del país que desea buscar: ").strip()
+    
+    # Normalizamos el texto ingresado
+    nombre_buscado = normalizar_texto(nombre_buscado)
 
     resultados = []
     for pais in paises:
-        if pais["nombre"].strip().lower().startswith(nombre_buscado):
+        # Normalizamos también el nombre del país en el CSV
+        if nombre_buscado in normalizar_texto(pais["nombre"]):
             resultados.append(pais)
-
 
     if resultados:
         print("\n--- Resultados de la búsqueda ---\n")
         for pais in resultados:
             print(f"País: {pais['nombre']} | Población: {pais['poblacion']} | Superficie: {pais['superficie']} | Continente: {pais['continente']}")
     else:
-        print("\n*** No se encontraron coincidencias ***")
+        print(f"\n*** No se encontraron coincidencias para '{nombre_buscado}' ***")
 
-
-"""Con esta función normalizamos el texto para filtrar paises, se pasa a minúscula se normaliza y se eliminan las tildes"""
 def normalizar_texto(texto):
+#Con esta función normalizamos el texto para filtrar paises, se pasa a minúscula se normaliza y se eliminan las tildes
     texto = texto.lower()
     texto = unicodedata.normalize('NFD', texto)
     texto = texto.encode('ascii', 'ignore').decode('utf-8')
